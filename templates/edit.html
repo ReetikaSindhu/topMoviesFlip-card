@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Edit Rating</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    
+</head>
+<body>
+    <div class="container">
+   <h1>EDIT  MOVIE</h1>
+   <form  action="{{ url_for('editfun', id=movie.id )}}" method="POST">
+    
+   {{ form.hidden_tag() }}
+   <P class="title"> {{movie.title}}</P>
+       {{form.rating.label}}{{form.rating()}}
+       {% for err in form.rating.errors %}
+       <span>{{ err }}</span>
+       {% endfor %}
+,<button type="submit">Edit</button></form>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+</head>
+<body>
+    {% for mov in movie %}
+    <form action="{{ url_for('editfun', id=mov.id )}}"method="POST">
+        
+   
+    {{ mov.id }}
+    {{ mov.title }}
+    Confirm you want to edit it
+    <button type="submit">Confirm</button>
+</form>{% endfor %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html style="width: 100%;height: 100%;">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Find movie</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>button{height: 70px;width:120px;background-color:aliceblue;border-radius :10px;box-shadow: 1px 18px 16px 12px rgb(0, 0, 0,0.3);}
+        button:hover{background-color: aqua;}
+        .formlabel{width:200px;font-weight: bolder;font-size: x-large;}
+        .forminput{width:300px;height: 50px;}
+    </style>
+   
+</head>
+<body style="width: 100%;height: 100%;background-image: url('/static/find_back.png');"><div style="width: 100%;height: 100%;;">
+   <div style=" width: 100%;height: 50%;display:grid;grid-template-rows: max-content;grid-template-rows: 1fr;
+   grid-template-columns: 1fr;
+   grid-template-areas: 'center';
+   justify-items: center;align-items: center;"> <form action="{{ url_for('findmovie') }}", method="post">
+    {{ form.hidden_tag() }}
+{{form.title.label(class="formlabel")}}{{form.title(class="forminput")}}
+{% for err in form.title.errors %}<span>{{ err }}</span>{% endfor %}</div><div style=" width: 100%;height:10%;display:grid;grid-template-rows: max-content;justify-items: center;align-items: center;">
+<button type="submit">Find Movie</button></form></div></div>
+</body>
+</html>

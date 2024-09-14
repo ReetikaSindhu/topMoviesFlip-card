@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html style="justify-content: center;justify-items: center;align-items: center;min-height: 100vh;background-image: linear-gradient(to right, rgb(233, 249, 87,0.6)50%);">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>MY TOP 10 MOVIES</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/main.css'>
+    
+    <style>
+    .card{perspective: 1000px;;width: 500px;margin: 20px 0 0 30%;border: 5px soild black;border-radius:3px;background-color: rgb(100, 198, 215);}
+.cardinner{position: relative;transition: transform 0.8s;
+    transform-style: preserve-3d;margin-bottom:300px ;width: 100%;min-height: 500px;;border: 5px soild black;border-radius:3px;}/*card height was not defined so was  causing issue*/
+.card:hover .cardinner{transform: rotateY(180deg);}
+.card-back{position: absolute;background-color: rgb(255, 255, 255); backface-visibility: hidden; width: 100%;
+    height: 100%;}
+.card-front{position: absolute;background-color:rgb(83, 183, 162);backface-visibility: hidden; width: 100%;
+    height: 100%;}
+.card-back{transform: rotateY(180deg);}
+
+        
+        .a_href_as_button{border: 0s; border-radius: 5px;display: inline-block;
+        padding: 10px 20px;text-decoration: none;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;}
+        .contai {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden;    
+            width: 100vh;min-height: 100vh;
+        }
+
+        .center-div {
+            width: 80%;               
+            display: flex;
+            flex-direction: column;
+            justify-content: right; 
+           
+                margin:0 10%; 
+          
+            
+            text-align: center;       
+        }
+        .center-div img{height:100%}
+        
+</style>
+</head>
+<body style="width: 100%;display: flex;flex-direction: column;justify-content: center;background: linear-gradient(to right, rgb(233, 249, 87)0%,rgb(242, 242, 242))">
+    <div class="contai" style="width: 100%;display: flex;flex-direction: column;justify-content: center;">
+    <div  class="center-div"style="width: 100%;display: flex;flex-direction: column;justify-content: center;" >
+       
+      
+      <div>
+        <p style="font-size: xx-large;">THESE ARE MY ALL TIME FAVOURITE MOVIES</p>
+        </div>
+        {% for mov in movie %} 
+        {% if mov %}
+        <div class="card">
+           
+        <div class="cardinner"style="margin-bottom:50px">  
+            <div class="card-front" style="object-fit: contain;overflow: hidden;">
+        <div class="movieheading" >
+             <h1>{{mov.title}}</h1>
+               </div>
+  
+     <div style="display: flex;justify-content: center;overflow: hidden;object-fit: fill;width: 100%;height: 100%;"><img src="{{mov.img_url}}"></div><img>
+    
+     <div class =large>{{mov.ranking}}</div></div>
+     <div class="card-back">
+        <div>
+           <div class="title">
+            {{mov.title}}
+           </div><span>{{mov.year}}</span>
+        </div>
+        <div class="rating"><label>{{mov.rating}}</label>
+            <i class="fas fa-star star"></i>
+        </div>
+<p>{{mov.review}}</p>
+<p>{{mov.description}}</p>
+<p>Movie ID: {{mov.id}}</p>
+<div style="display: grid;grid-template-columns: repeat(3,1fr);  justify-items: center; align-items: center; margin: 40px">
+    <div style="margin: 20px;">
+<form action="{{ url_for('editfun', id=mov.id )}}" method="post"><button type="submit" >UPDATE</button>
+</form></div><div style="margin: 20px;">
+<a href="{{ url_for('deletefun', id=mov.id )}}" class="a_href_as_button" >DELETE</a></div><div style="margin: 20px;">
+<form class="container text-center add" action="{{ url_for('addmovie_fun')}}"><button type="submit" value="ADD Movie" >ADD Movie</form></div>
+</div></div>
+
+    
+    </div></div>{% endif %}
+    {% endfor %}    
+
+
+
+
+
+    <div>
+    <form class="findbutton" action="{{ url_for('findmovie') }}"><button type="submit">FIND MOVIE</button></form>
+</div>
+
+</body>
+</html>

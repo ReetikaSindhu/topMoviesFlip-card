@@ -1,0 +1,42 @@
+
+@media screen and (max-width: 800px){.card{width:calc(50% -3rem)}}
+@media screen and (max-width:500px){.card{width:100%}}
+.card .front:hover{backface-visibility: visible;display: flex;
+    border-radius: 6px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: ease-in-out 300ms;}
+ .back {
+    display: flex;
+    border-radius: 6px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: ease-in-out 600ms;
+}
+.a_href_as_button{border: 0s; border-radius: 5px;display: inline-block;
+    padding: 10px 20px;text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;}
+    

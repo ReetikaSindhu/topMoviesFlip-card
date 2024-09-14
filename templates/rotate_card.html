@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html style="width: 100%; height: 100%;">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>.card{position: absolute;perspective: 1000px;width: 500px;height: auto;border: 5px soild black;border-radius:3px;background-color: blue;}
+.cardinner{position: relative;transition: transform 0.8s;
+    transform-style: preserve-3d;width: 100%;height: 100%;}
+.card:hover .cardinner{transform: rotateY(180deg);}
+.card-back{position: absolute;background-color: rgb(84, 53, 5); backface-visibility: hidden; width: 100%;
+    height: 100%;}
+.card-front{position: absolute;background-color:rgb(255, 0, 217);backface-visibility: hidden; width: 100%;
+    height: 100%;}
+.card-back{transform: rotateY(180deg);}
+
+    </style>
+</head>
+<body style="width: 100%; height: 100%;">
+    <Div class="card">
+        <div class="cardinner">
+            <div class="card-front">front</div>
+            <div class="card-back"><a>back</a></div></div></Div>
+   
+</body>
+</html>
